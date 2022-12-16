@@ -1,4 +1,5 @@
 import subprocess
+import os
 import pathlib
 path = pathlib.Path(__file__).parent.resolve()
 file_path = str(path) + "/tosort.txt"
@@ -20,7 +21,9 @@ def main(arr) -> list:
         process:subprocess.run = subprocess.run(cmd, cwd=path)
     except Exception as exc: print(exc)
     
-    return return_sorted()
+    to_return = return_sorted()
+    os.remove(file_path)
+    return to_return
 
 
 main([1,2,3,3535,61234,2453,4])
