@@ -5,22 +5,21 @@ path = pathlib.Path(__file__).parent.resolve()
 
 
 class Sorting:
-    def __init__(self, sorting_type:str, arr:list) -> None:
+    def __init__(self, sorting_type:str, arr:list) -> list:
         self.executable_path = str(path) + "/Sorting Apis/bubblesort" if sorting_type == "bubblesort" else str(path) + "/Sorting Apis/countingsort"
         self.file_path = self.executable_path + "/tosort.txt"
         self.arr = arr
-        self.sort(self.arr)
      
-    def create_file(self,arr) -> None:
+    def create_file(self) -> None:
         with open(self.file_path, 'w+') as f:
-            [f.write(str(i)+";") for i in arr]
+            [f.write(str(i)+";") for i in self.arr]
 
     def return_sorted(self) -> list:
         with open(self.file_path, 'r') as f:
             sorted = f.readline()
         return sorted
     
-    def sort(self, arr) -> list:
+    def sort(self) -> list:
         self.create_file(self.arr)
         cmd = ["cargo", "run", "--release", self.file_path]
         try:
@@ -39,7 +38,6 @@ class Generator:
         self.amount = amount
         self.executable_path = str(path) + "/Generators/RandomNumberGenerator"
         self.file_path = self.executable_path + "/generated.txt"
-        self.generate()
         
     def generate(self):
         self.create_file()
