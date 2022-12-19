@@ -1,0 +1,1 @@
+/home/mioshek/Programming_Stuff/Programming/Rust/basics/RandomNumberGenerator/target/debug/RandomNumberGenerator: /home/mioshek/Programming_Stuff/Programming/Rust/basics/RandomNumberGenerator/src/main.rs
